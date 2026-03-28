@@ -72,19 +72,21 @@ export default function Lobby({ navigation }) {
                     </View>
 
                     <TouchableOpacity
-                        { backgroundColor: '#d97706', flex: 0, width: '100%', alignItems: 'center', justifyContent: 'center' }
+                        style={[styles.button, { backgroundColor: '#d97706', flex: 0, width: '100%', alignItems: 'center', justifyContent: 'center' }]}
                         onPress={() => navigation.navigate('Chat')}
                     >
                         <Text style={styles.buttonText}>💬 Family Chat</Text>
                     </TouchableOpacity>
+
+                    <TouchableOpacity
+                        style={[styles.button, { backgroundColor: '#7c3aed', flex: 0, width: '100%', alignItems: 'center', justifyContent: 'center' }]}
+                        onPress={() => navigation.navigate('Leaderboard')}
+                    >
+                        <Text style={styles.buttonText}>🏆 Leaderboard</Text>
+                    </TouchableOpacity>
                 </View>
             )}
-            <TouchableOpacity
-                { backgroundColor: '#7c3aed', flex: 0, width: '100%', alignItems: 'center', justifyContent: 'center' }
-                onPress={() => navigation.navigate('Leaderboard')}
-            >
-                <Text style={styles.buttonText}>🏆 Leaderboard</Text>
-            </TouchableOpacity>
+
             {mode === 'create' && (
                 <View style={styles.section}>
                     <TouchableOpacity style={[styles.button, styles.createButton]} onPress={handleCreate}>
