@@ -54,19 +54,28 @@ export default function Lobby({ navigation }) {
             />
 
             {!mode && (
-                <View style={styles.buttonRow}>
-                    <TouchableOpacity
-                        style={[styles.button, styles.createButton]}
-                        onPress={() => setMode('create')}
-                    >
-                        <Text style={styles.buttonText}>Create Room</Text>
-                    </TouchableOpacity>
+                <View style={{ width: '100%', gap: 12 }}>
+                    <View style={styles.buttonRow}>
+                        <TouchableOpacity
+                            style={[styles.button, styles.createButton]}
+                            onPress={() => setMode('create')}
+                        >
+                            <Text style={styles.buttonText}>Create Room</Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity
+                            style={[styles.button, styles.joinButton]}
+                            onPress={() => setMode('join')}
+                        >
+                            <Text style={styles.buttonText}>Join Room</Text>
+                        </TouchableOpacity>
+                    </View>
 
                     <TouchableOpacity
-                        style={[styles.button, styles.joinButton]}
-                        onPress={() => setMode('join')}
+                        style={[styles.button, { backgroundColor: '#d97706', flex: 0 }]}
+                        onPress={() => navigation.navigate('Chat')}
                     >
-                        <Text style={styles.buttonText}>Join Room</Text>
+                        <Text style={styles.buttonText}>💬 Family Chat</Text>
                     </TouchableOpacity>
                 </View>
             )}
