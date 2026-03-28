@@ -1,4 +1,6 @@
 import React, { useState, useCallback, useEffect } from 'react';
+import { db } from '../firebase';
+import { ref, push } from 'firebase/database';
 import {
     View,
     Text,
@@ -288,20 +290,7 @@ export default function WordleScreen() {
         }
 
         const result = checkGuess(guessWord, answer);
-
-        // Update board tiles
-        setBoard(prev => {
-            const next = prev.map(r => [...r]);
-            result.forEach((tile, i) => {
-                next[row][i] = {
-                    letter: tile.guess.toUpperCase(),
-                    state:  tile.result,
-                };
-            });
-            return next;
-        });
-
-        // Update keyboard colours
+w        // Update keyboard colours
         setKeyStates(prev => {
             const next     = { ...prev };
             const priority = { correct: 3, present: 2, absent: 1 };
@@ -325,17 +314,14 @@ export default function WordleScreen() {
             showMessage(winMessages[row] || 'You got it!', '#4ade80');
             setStreak(s => s + 1);
             setGameOver(true);
-        } else if (nextRow >= MAX_GUESSES) {
-            showMessage(`The word was ${answer}`, '#f87171');
-            setStreak(0);
-            setGameOver(true);
-        } else {
-            showMessage(`Guess ${nextRow + 1} of ${MAX_GUESSES}`, '#5a5a6a');
-            setCurrentRow(nextRow);
-            setCurrentCol(0);
-        }
-    }
 
+            // Save score to Firebase
+            push(ref(db, 'scores'), {
+                name: 'Player',
+                guesses: row + 1,
+                timestamp: Date.now(),
+            });
+        }
     // ── Handle key press ─────────────────────────────────────
     const handleKey = useCallback((key) => {
         if (gameOver) return;
