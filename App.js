@@ -1,3 +1,4 @@
+import Leaderboard from './screens/Leaderboard';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Lobby from './screens/Lobby';
@@ -13,6 +14,7 @@ export default function App() {
           <Stack.Screen name="Lobby" component={Lobby} />
           <Stack.Screen name="Game" component={Game} />
           <Stack.Screen name="Chat" component={MessagingModule} />
+              <Stack.Screen name="Leaderboard" component={Leaderboard} />
         </Stack.Navigator>
       </NavigationContainer>
   );

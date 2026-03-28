@@ -8,7 +8,7 @@ const firebaseConfig = {
     storageBucket: "famhack26-214b3.firebasestorage.app",
     messagingSenderId: "537945257235",
     appId: "1:537945257235:web:539ccca152f51d4c0f56e6",
-    databaseURL: "https://famhack26-214b3-default-rtdb.firebaseio.com"
+    databaseURL: "https://famhack26-214b3-default-rtdb.europe-west1.firebasedatabase.app"
 };
 
 const app = initializeApp(firebaseConfig);

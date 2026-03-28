@@ -79,7 +79,12 @@ export default function Lobby({ navigation }) {
                     </TouchableOpacity>
                 </View>
             )}
-
+            <TouchableOpacity
+                style={[styles.button, { backgroundColor: '#7c3aed', flex: 0, width: '100%' }]}
+                onPress={() => navigation.navigate('Leaderboard')}
+            >
+                <Text style={styles.buttonText}>🏆 Leaderboard</Text>
+            </TouchableOpacity>
             {mode === 'create' && (
                 <View style={styles.section}>
                     <TouchableOpacity style={[styles.button, styles.createButton]} onPress={handleCreate}>
