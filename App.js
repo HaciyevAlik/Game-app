@@ -9,7 +9,7 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Lobby" screenOptions={{ headerShown: false }}>
+          <Stack.Navigator initialRouteName="Lobby" screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Lobby" component={Lobby} />
           <Stack.Screen name="Game" component={Game} />
           <Stack.Screen name="Chat" component={MessagingModule} />
