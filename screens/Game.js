@@ -298,4 +298,3 @@ const styles = StyleSheet.create({
     keyAbsent: { backgroundColor: '#18181b', borderColor: '#18181b' },
     keyText: { color: '#f0ede8', fontWeight: '700', fontSize: 12 },
 });
- 
