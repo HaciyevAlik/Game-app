@@ -265,7 +265,7 @@ export default function WordleScreen({ route }) {
                         ))}
                     </View>
                 ))}
-            </View>
+            </View><Text style={styles.title}>FamGames 🏠</Text>
         </SafeAreaView>
     );
 }
