@@ -72,7 +72,7 @@ export default function Lobby({ navigation }) {
                     </View>
 
                     <TouchableOpacity
-                        style={[styles.button, { backgroundColor: '#d97706', flex: 0, width: '100%', alignItems: 'center', justifyContent: 'center' }]}
+                        { backgroundColor: '#d97706', flex: 0, width: '100%', alignItems: 'center', justifyContent: 'center' }
                         onPress={() => navigation.navigate('Chat')}
                     >
                         <Text style={styles.buttonText}>💬 Family Chat</Text>
@@ -80,7 +80,7 @@ export default function Lobby({ navigation }) {
                 </View>
             )}
             <TouchableOpacity
-                style={[styles.button, { backgroundColor: '#7c3aed', flex: 0, width: '100%' }]}
+                { backgroundColor: '#7c3aed', flex: 0, width: '100%', alignItems: 'center', justifyContent: 'center' }
                 onPress={() => navigation.navigate('Leaderboard')}
             >
                 <Text style={styles.buttonText}>🏆 Leaderboard</Text>
