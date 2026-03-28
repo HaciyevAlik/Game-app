@@ -43,7 +43,7 @@ export default function Lobby({ navigation }) {
     return (
         <SafeAreaView style={styles.container}>
             <Text style={styles.title}>FamGames</Text>
-            <Text style={styles.subtitle}>Family Game Night</Text>
+            <Text style={styles.subtitle}>Family Games</Text>
 
             <TextInput
                 style={styles.input}
