@@ -72,7 +72,7 @@ export default function Lobby({ navigation }) {
                     </View>
 
                     <TouchableOpacity
-                        style={[styles.button, { backgroundColor: '#d97706', flex: 0 }]}
+                        style={[styles.button, { backgroundColor: '#d97706', flex: 0, width: '100%' }]}
                         onPress={() => navigation.navigate('Chat')}
                     >
                         <Text style={styles.buttonText}>💬 Family Chat</Text>
