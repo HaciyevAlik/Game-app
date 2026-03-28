@@ -1,10 +1,13 @@
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { AuthProvider } from '../../shared/AuthContext';
 import ChannelListScreen from './screens/ChannelListScreen';
 
-export default function MessagingModule() {
+export default function MessagingModule({ navigation }) {
   return (
-    <AuthProvider>
-      <ChannelListScreen />
-    </AuthProvider>
+    <SafeAreaProvider>
+      <AuthProvider>
+        <ChannelListScreen navigation={navigation} />
+      </AuthProvider>
+    </SafeAreaProvider>
   );
 }

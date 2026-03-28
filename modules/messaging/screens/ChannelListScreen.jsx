@@ -11,29 +11,26 @@ const CHANNELS = [
   { id: 'announcements', name: 'announcements', lastMessage: 'Sunday dinner @ 6pm', unread: 1 },
 ];
 
-export default function ChannelListScreen() {
+export default function ChannelListScreen({navigation}) {
   const [activeChannel, setActiveChannel] = useState(null);
 
   if (activeChannel) {
-    return (
-      <View style={{ flex: 1 }}>
-        <TouchableOpacity
-          style={styles.backButton}
-          onPress={() => setActiveChannel(null)}
-        >
-          <Text style={styles.backText}>← Back</Text>
-        </TouchableOpacity>
-        <ChatScreen channelId={activeChannel} />
-      </View>
-    );
-  }
+  return (
+    <View style={{ flex: 1 }}>
+      <ChatScreen channelId={activeChannel} onBack={() => setActiveChannel(null)} />
+    </View>
+  );
+}
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Family Hub 🏠</Text>
-        <Text style={styles.headerSub}>{CHANNELS.length} channels</Text>
-      </View>
+  <TouchableOpacity onPress={() => navigation.goBack()}>
+    <Text style={styles.backText}>← Lobby</Text>
+  </TouchableOpacity>
+  <Text style={styles.headerTitle}>Family Hub 🏠</Text>
+  <Text style={styles.headerSub}>{CHANNELS.length} channels</Text>
+</View>
 
       <FlatList
         data={CHANNELS}
@@ -69,10 +66,10 @@ const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#f5f5f5' },
   header: {
     backgroundColor: '#fff',
-    padding: 16,
-    paddingTop: 12,
-    borderBottomWidth: 0.5,
-    borderBottomColor: '#e0e0e0',
+  padding: 16,
+  paddingTop: 64,
+  borderBottomWidth: 0.5,
+  borderBottomColor: '#e0e0e0', 
   },
   headerTitle: { fontSize: 20, fontWeight: '700', color: '#1a1a1a' },
   headerSub: { fontSize: 12, color: '#888', marginTop: 2 },
@@ -100,12 +97,10 @@ const styles = StyleSheet.create({
   },
   badgeText: { color: '#fff', fontSize: 11, fontWeight: '600' },
   separator: { height: 0.5, backgroundColor: '#e0e0e0' },
-  backButton: {
-    backgroundColor: '#fff',
-    paddingTop: 52, paddingBottom: 12,
-    paddingHorizontal: 16,
-    borderBottomWidth: 0.5,
-    borderBottomColor: '#e0e0e0',
-  },
-  backText: { fontSize: 15, color: '#185FA5', fontWeight: '500' },
+  backText: {
+  fontSize: 15,
+  color: '#185FA5',
+  fontWeight: '500',
+  marginBottom: 6,
+},
 });
