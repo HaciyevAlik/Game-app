@@ -5,6 +5,7 @@ import Lobby from './screens/Lobby';
 import Game from './screens/Game';
 import MessagingModule from './modules/messaging';
 
+// Project setup verified - 2026
 const Stack = createNativeStackNavigator();
 
 export default function App() {
